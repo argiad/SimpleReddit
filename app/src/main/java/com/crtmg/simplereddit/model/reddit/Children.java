@@ -16,4 +16,12 @@ public class Children {
     public Post getData() {
         return data;
     }
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public void setData(Post data) {
+        this.data = data;
+    }
 }

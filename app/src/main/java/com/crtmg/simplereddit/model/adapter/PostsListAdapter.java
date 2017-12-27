@@ -28,16 +28,7 @@ import butterknife.ButterKnife;
 public class PostsListAdapter extends RecyclerView.Adapter<PostsListAdapter.PostViewHolder> {
 
 
-    private final int cacheSize = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
     private List<Children> posts = new ArrayList<>();
-    private LruCache<String, Bitmap> lruCache = new LruCache<String, Bitmap>(cacheSize) {
-        @Override
-        protected int sizeOf(String key, Bitmap bitmap) {
-            // The cache size will be measured in kilobytes rather than
-            // number of items.
-            return bitmap.getByteCount() / 1024;
-        }
-    };
 
     private PostsListAdapter() {
     }
@@ -61,7 +52,7 @@ public class PostsListAdapter extends RecyclerView.Adapter<PostsListAdapter.Post
         holder.tvContent.setText(post.getAuthor());
         holder.ivTumbnail.setImageBitmap(null);
 
-        new LoadImage(holder.ivTumbnail, lruCache).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, post.getThumbnail());
+        new LoadImage(holder.ivTumbnail ).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, post.getThumbnail());
 
     }
 
@@ -103,7 +94,7 @@ public class PostsListAdapter extends RecyclerView.Adapter<PostsListAdapter.Post
         @BindView(R.id.tvContent)
         TextView tvContent;
 
-        public PostViewHolder(View itemView) {
+        PostViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

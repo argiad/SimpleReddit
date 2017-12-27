@@ -24,5 +24,7 @@ public class ExampleInstrumentedTest {
         assertEquals("com.crtmg.simplereddit", appContext.getPackageName());
     }
 
+
+
 }
 

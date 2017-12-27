@@ -10,6 +10,8 @@ import android.webkit.URLUtil;
 import android.widget.ImageView;
 
 import com.crtmg.simplereddit.R;
+import com.crtmg.simplereddit.model.BuisnessLogic;
+import com.crtmg.simplereddit.model.SimpleReddit;
 
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -26,9 +28,10 @@ public class LoadImage extends AsyncTask<String, Void, Bitmap> {
     private final WeakReference<ImageView> imageViewReference;
     private final WeakReference<LruCache<String, Bitmap>> lruCacheWeakReference;
 
-    public LoadImage(ImageView imageView, LruCache<String, Bitmap> lruCache) {
+    public LoadImage(ImageView imageView) {
+        BuisnessLogic buisnessLogic = ((SimpleReddit) imageView.getContext().getApplicationContext()).buisnessLogic;
         imageViewReference = new WeakReference<ImageView>(imageView);
-        lruCacheWeakReference = new WeakReference<LruCache<String, Bitmap>>(lruCache);
+        lruCacheWeakReference = new WeakReference<LruCache<String, Bitmap>>(buisnessLogic.getLruCache());
     }
 
     @Override
