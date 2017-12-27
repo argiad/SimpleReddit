@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="reddits">
+        <item>all</item>
+        <item>Art</item>
+        <item>DIY</item>
+        <item>MachineLearning</item>
+        <item>news</item>
+    </string-array>
+    <string-array name="filter">
+        <item>new</item>
+        <item>rising</item>
+        <item>controversial</item>
+        <item>hot</item>
+        <item>random</item>
+    </string-array>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SimpleReddit</string>
+    <string name="base_url">https://www.reddit.com/r/</string>
+    <string name="network_helper_error_response_code">Sever response code %d</string>
+    <string name="network_helper_errer_parser">NetworkHelper JSON parser error</string>
+    <string name="network_helper_error_failure">NetworkHelper Failure see stacktrace</string>
+</resources>
